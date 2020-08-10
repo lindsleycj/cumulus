@@ -364,6 +364,14 @@ async function moveGranules(event) {
       updatedCmrFiles);
   } else {
     movedGranulesByGranuleId = granulesByGranuleId;
+    await updateEachCmrFileAccessURLs(
+      cmrFiles,
+      movedGranules,
+      cmrGranuleUrlType,
+      config.distribution_endpoint,
+      bucketTypes,
+      distributionBucketMap
+    );
   }
 
   return {
